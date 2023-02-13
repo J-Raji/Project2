@@ -1,62 +1,81 @@
 # LEMP STACK IMPLEMENTATION(PROJECT2)
 
 ## Installing Nano Editor
+
 `sudo apt install nano`
 `sudo apt update`
-![Image to installed nano](./Images/nano.PNG)
+
+![Image to installed nano](./Images/nano.png)
 
 -----
 In windows ternimal
 `cd downoads`
 
 `ssh -i "my-first-instance.pem" ubuntu@ec2-52-70-123-188.compute-1.amazonaws.com`
-![Image to connect instance](./Images/connectinstance.PNG)
+
+![Image to connect instance](./Images/connectinstance.png)
 
 ---
 ## Install NGINX
+
 `sudo apt update`
 `sudo apt install nginx`
 
-![Image to installed nginx](./Images/nginx.PNG)
+![Image to installed nginx](./Images/nginx.png)
 
 ---
 ## Nginx status
+
 `sudo systemctl status nginx`
-![Image to status nginx](./Images/NGINXStat.PNG)
+
+![Image to status nginx](./Images/NGINXStat.png)
 
 ----
 ## Launch localhost
+
 `curl http://localhost:80`
-![Image to launch localhost](./Images/launch.PNG)
+
+![Image to launch localhost](./Images/launch.png)
 
 ---
 ## check IP
+
 `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
-![Image to check ip](./Images/checkip.PNG)
+
+![Image to check ip](./Images/checkip.png)
 
 
 ---
 ## install mysql server
+
 `sudo apt install mysql-server`
-![Image to mysqlserver installed](./Images/mysqlserver.PNG)
+
+![Image to mysqlserver installed](./Images/mysqlserver.png)
 
 ---
 ## open mysql server
+
 `sudo mysql`
-![Image to mysqlserver log](./Images/mysqlserver.PNG)
+
+![Image to mysqlserver log](./Images/mysqlserver.png)
 
 ---
 ## install mysql server
+
 `sudo apt install mysql-server`
-![Image to mysqlserver installed](./Images/mysqlserver.PNG)
+
+![Image to mysqlserver installed](./Images/mysqlserver.png)
 
 ---
 # INSTALL PHP
+
 `sudo apt install php-fpm php-mysql`
-![Image to PHP two packages installed](./Images/php2package.PNG)
+
+![Image to PHP two packages installed](./Images/php2package.png)
 
 ----
 ## connect nginx with php
+
 `sudo mkdir /var/www/projectLEMP`
 `sudo chown -R $USER:$USER /var/www/projectLEMP`
 `sudo nano /etc/nginx/sites-available/projectLEMP`
@@ -99,65 +118,79 @@ Error found,resolved by clearing "Here’s what each of these directives and loc
 `sudo systemctl status nginx`
 `sudo systemctl reload nginx`
 
-![Image to nginx with php](./Images/nginxinnano.PNG)
+![Image to nginx with php](./Images/nginxinnano.png)
 
 ---
 ## open in browser
 `sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html`
 
-![Image to open in browser](./Images/nginxsite.PNG)
+![Image to open in browser](./Images/nginxsite.png)
 
 ---
 
 ## open NGINX using IP address
- 	[NGINX Site](http://52.70.123.188:80)
-![Image to nginx view](./Images/nginxview.PNG)
+
+[NGINX Site](http://52.70.123.188:80)
+    
+![Image to nginx view](./Images/nginxview.png)
 
 ---
 ## PHP WITH NGINX TEST
+
 `sudo nano /var/www/projectLEMP/info.php`
 --
 <?php
 phpinfo();
 --
 
-![Image to installed nginx](./Images/nginx.PNG)
+![Image to installed nginx](./Images/nginx.png)
 
 ---
 ## Nginx status
+
 `sudo systemctl status nginx`
-![Image to status nginx](./Images/NGINXStat.PNG)
+
+![Image to status nginx](./Images/NGINXStat.png)
 
 ----
 
 ## RETRIEVING DATA FROM MYSQL USING PHP
+
 `sudo mysql`
 
 `mysql> CREATE DATABASE `example_database`;`
 
 `mysql>  CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';`
+
 `mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';`
 
-![Image to create database](./Images/creatdb.PNG)
+![Image to create database](./Images/creatdb.png)
 
 ----
 ## Checking with password
+
 `mysql -u example_user -p`
-![Image to log in](./Images/passmysql.PNG)
+
+![Image to log in](./Images/passmysql.png)
 
 ----
 ## show database
+
 `mysql -u example_user -p`
-![Image to view database](./Images/showdb.PNG)
+
+![Image to view database](./Images/showdb.png)
 
 ----
 ## Blocker error while granting privilege to emample_user
+
 ERROR 1142
 
 ## Resolve with 
+
 `CREATE USER 'example_user'@'localhost' IDENTIFIED BY 'password';`
 `GRANT ALL ON example_database.* TO 'example_user'@'localhost';`
-![Image to Error 1142 resolved](./Images/Blkerror1142.PNG)
+
+![Image to Error 1142 resolved](./Images/Blkerror1142.png)
 
 ------------------
 
@@ -169,22 +202,29 @@ item_id INT AUTO_INCREMENT,
 content VARCHAR(255),
 PRIMARY KEY(item_id)
 );`
-![Image to create db and tbl](./Images/createdb-tbl.PNG)
+
+![Image to create db and tbl](./Images/createdb-tbl.png)
 
 ----
 ## Insert into table
+
 `INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
 `INSERT INTO example_database.todo_list (content) VALUES ("My second important item");`
 `INSERT INTO example_database.todo_list (content) VALUES ("My third important item");`
 `INSERT INTO example_database.todo_list (content) VALUES ("My fourth important item");`
 
 ## show content of table
+
 `SELECT * FROM example_database.todo_list;`
-![Image to show content](./Images/insert-show.PNG)
+
+![Image to show content](./Images/insert-show.png)
 
 ## Insert into nano file
+
 `nano /var/www/projectLEMP/todo_list.php`
+
 ## Edit file
+
 `<?php
 $user = "example_user";
 $password = "password";
@@ -207,4 +247,4 @@ CTRL+X then yes.enter
 
 ## Launch Site
 [Nano file link] http://18.212.182.33/todo_list.php
-![Image to nano site](./Images/insert-show.PNG)
+![Image to nano site](./Images/insert-show.png)
