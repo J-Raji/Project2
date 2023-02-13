@@ -7,8 +7,8 @@
 
 ![Image to installed nano](./Images/nano.png)
 
------
-In windows ternimal
+
+[]In windows ternimal
 `cd downoads`
 
 `ssh -i "my-first-instance.pem" ubuntu@ec2-52-70-123-188.compute-1.amazonaws.com`
@@ -39,7 +39,6 @@ In windows ternimal
 
 ---
 ## check IP
-
 `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 
 ![Image to check ip](./Images/checkip.png)
@@ -54,10 +53,8 @@ In windows ternimal
 
 ---
 ## open mysql server
-
 `sudo mysql`
-
-![Image to mysqlserver log](./Images/mysqlserver.png)
+![Image to mysqlserver log](./Images/mysqlserver.PNG)
 
 ---
 ## install mysql server
@@ -129,14 +126,12 @@ Error found,resolved by clearing "Here’s what each of these directives and loc
 ---
 
 ## open NGINX using IP address
+ 	[NGINX Site](http://52.70.123.188:80)
 
-[NGINX Site](http://52.70.123.188:80)
-    
 ![Image to nginx view](./Images/nginxview.png)
 
 ---
 ## PHP WITH NGINX TEST
-
 `sudo nano /var/www/projectLEMP/info.php`
 --
 <?php
@@ -147,7 +142,6 @@ phpinfo();
 
 ---
 ## Nginx status
-
 `sudo systemctl status nginx`
 
 ![Image to status nginx](./Images/NGINXStat.png)
@@ -161,7 +155,6 @@ phpinfo();
 `mysql> CREATE DATABASE `example_database`;`
 
 `mysql>  CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';`
-
 `mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';`
 
 ![Image to create database](./Images/creatdb.png)
@@ -175,14 +168,11 @@ phpinfo();
 
 ----
 ## show database
-
 `mysql -u example_user -p`
-
-![Image to view database](./Images/showdb.png)
+![Image to view database](./Images/showdb.PNG)
 
 ----
 ## Blocker error while granting privilege to emample_user
-
 ERROR 1142
 
 ## Resolve with 
@@ -195,6 +185,7 @@ ERROR 1142
 ------------------
 
 ## Creating DAtabase and Table
+
 `CREATE DATABASE 'example_database';
 --
 `CREATE TABLE example_database.todo_list (
@@ -243,8 +234,11 @@ try {
     die();
 }`
 ### Save
+
 CTRL+X then yes.enter
 
 ## Launch Site
+
 [Nano file link] http://18.212.182.33/todo_list.php
+
 ![Image to nano site](./Images/insert-show.png)
